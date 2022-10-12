@@ -52,6 +52,8 @@
 
             
                </v-col>
+
+               <v-btn class="purple darken-2 white--text mt-5" color="#445667" @click="submitForm"> Register <v-btn>
          
          
             </v-row>
@@ -74,10 +76,13 @@
                v => /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()\\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v) || 'E-mail invalido',],
 
                password: '',
-               passwordRules: [v => !!v || 'Password is required',
-               v => /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(v) || 'Password must contain at least lowercase letter, one number, a special character and one uppercase letter',],
+               passwordRules: [v => !!v || 'Senha Obrigatório',
+               v => /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(v) || 'A senha deve conter pelo menos uma letra minúscula, um número, um caractere especial e uma letra maiúscula',],
                firstcheckbox: false,
             }
+         },
+         methods: {
+            submitForm () { this.$refs.form.validate();}
          }
       }
 </script>
