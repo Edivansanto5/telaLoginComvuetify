@@ -18,7 +18,7 @@
             <p>Please complete this form to create an account</p>
 
             <v-form ref="form" class="mx-2" lazy-validation>
-               <v-row>
+                <v-row>
                   <v-col cols="6">
                      <v-text-field v-model="firstname" :rules="nameRules" label="Primeiro Nome"></v-text-field>
                   </v-col>
@@ -26,7 +26,14 @@
                   <v-col cols="6">
                      <v-text-field v-model="lastname" :rules="nameRules" label="Segundo Nome"></v-text-field>
                   </v-col>
-               </v-row>
+
+                  <v-row>
+                     <v-col cols="12">
+                        <v-text-field v-model="email" :rules="emailRules" label="Email" required />
+                     </v-col>
+                  </v-row>
+
+               </v-row> 
             </v-form>
             
          </v-col>
@@ -39,8 +46,14 @@
 
 
 <script>
-
-export default {
-   name:'RegistrationForm'
-}
+      export default{
+         data(){
+            return{
+               firstname: '',
+               lastname: '',
+               nameRules: [v => !!v || 'O nome é obrigatório',v => (v && v.length <= 10) ||
+                'O nome deve ter menos de 10 caracteres',],
+            }
+         }
+      }
 </script>
