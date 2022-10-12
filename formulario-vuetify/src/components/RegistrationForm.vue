@@ -51,8 +51,12 @@
             return{
                firstname: '',
                lastname: '',
-               nameRules: [v => !!v || 'O nome é obrigatório',v => (v && v.length <= 10) ||
-                'O nome deve ter menos de 10 caracteres',],
+               nameRules: [v => !!v || 'O nome é obrigatório',v => (v && v.length <= 12) ||
+                'O nome deve ter menos de 12 caracteres',],
+
+                email: '',
+                emailRules: [v => !!v || 'E-mail is Obrigatório',
+                v => /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()\\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v) || 'E-mail invalido',],
             }
          }
       }
