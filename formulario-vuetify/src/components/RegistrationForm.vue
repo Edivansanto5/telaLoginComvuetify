@@ -35,11 +35,26 @@
 
                </v-row> 
             </v-form>
+            <v-row>
+               <v-col cols="6">
+                        <v-text-field v-model="password" type="password" :rules="passwordRules"
+                           label="Password" required></v-text-field>
+                        </v-col>
+                     </v-row>
+<!-- 
+                  <v-checkbox v-model="firstcheckbox" :rules="[v => !!v || 'You must agree to continue!']"
+                     label="I agree with Terms and Conditions" required>
+                  </v-checkbox>
+
+                  <v-checkbox v-model="seccheckbox" :rules="[v => !!v || 'You must agree to receive!']"
+                     label="I want to receive LogRocket Emails" required>
+                  </v-checkbox> -->
+
             
-         </v-col>
+               </v-col>
          
          
-      </v-row>
+            </v-row>
     
   </v-container>
 </template>
@@ -54,9 +69,14 @@
                nameRules: [v => !!v || 'O nome é obrigatório',v => (v && v.length <= 12) ||
                 'O nome deve ter menos de 12 caracteres',],
 
-                email: '',
-                emailRules: [v => !!v || 'E-mail is Obrigatório',
-                v => /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()\\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v) || 'E-mail invalido',],
+               email: '',
+               emailRules: [v => !!v || 'E-mail is Obrigatório',
+               v => /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()\\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v) || 'E-mail invalido',],
+
+               password: '',
+               passwordRules: [v => !!v || 'Password is required',
+               v => /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(v) || 'Password must contain at least lowercase letter, one number, a special character and one uppercase letter',],
+               firstcheckbox: false,
             }
          }
       }
