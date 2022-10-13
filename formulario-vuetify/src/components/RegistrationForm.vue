@@ -54,7 +54,7 @@
 
                <v-btn class="purple darken-2 white--text mt-5" color="#445667" @click="submitForm"> Register </v-btn>
 
-               <v-btn class="purple darken-2 white--text mt-5" color="#445667" @click="submitForm"> Register </v-btn>
+               
          
          
             </v-row>
